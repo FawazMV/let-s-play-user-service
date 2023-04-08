@@ -23,6 +23,6 @@
     "dev":"nodemon index.js"
 
   },
-  "author": "Muhammed Fawaz MV",
+  "author": "FawazMV",
   "license": "ISC"
 }
