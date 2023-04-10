@@ -12,17 +12,7 @@ import otherRoutes from './Routes/otherRoutes.js'
 
 dotenv.config()
 const app = express()
-app.use(express.json());
-
-const corsOptions = {
-    origin: ['http://3.106.126.248', 'https://let-s-play.onrender.com'],
-    methods: 'GET,POST,PATCH,PUT,DELETE',
-    preflightContinue: true,
-    optionsSuccessStatus: 200,
-    credentials: true
-};
-
-app.use(cors(corsOptions));
+app.use(express.json(),cors());
 
 app.use('/', authRoutes)
 
@@ -49,6 +39,6 @@ connectDB()
 mongoose.connection.once("open", () => {
     console.log("Connected to MongoDB");
     app.listen(7777, () => {
-        console.log(`Server running on port 7777`);
+        console.log(`Server running on port 7777 -user service`);
     });
 });

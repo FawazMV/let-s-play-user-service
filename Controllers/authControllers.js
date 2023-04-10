@@ -45,7 +45,6 @@ export const otpSend = async (req, res) => {
         return res.status(200).json({ message: `OTP send to ${req.body.mobile}` });
     }
     catch (error) {
-        console.log(error);
         return res.status(500).json({ error: "Internal Server Error !" })
     }
 }

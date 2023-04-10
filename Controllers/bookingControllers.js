@@ -9,7 +9,6 @@ export const bookSlot = async (req, res, next) => {
         if (data) return res.status(200).json(data);
     }
     catch (error) {
-        // console.log(error)
         return res.status(500).json({ error: "Internal Server Error !" })
     }
 }
@@ -19,7 +18,6 @@ export const userBookings = async (req, res) => {
         const { data } = await axios.get('/user-bookings', { params: { user: req.user.id } })
         if (data) return res.status(200).json(data);
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ error: "Internal Server Error !" })
     }
 }
@@ -30,7 +28,6 @@ export const createPaymentIntent = async (req, res) => {
         const { data } = await axios.get('/payment', { params: { book_id: req.query.book_id, email } })
         if (data) return res.status(200).json(data);
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ error: "Internal Server Error !" })
     }
 }
@@ -41,7 +38,6 @@ export const bookingSuccess = async (req, res) => {
         const { data } = await axios.patch('/booking-success', { id: req.body.id, email, username })
         if (data) return res.status(200).json(data);
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ error: "Internal Server Error !" })
     }
 }
@@ -51,7 +47,6 @@ export const bookingFailed = async (req, res) => {
         const { data } = await axios.patch('/booking-failed', { id: req.body.id })
         if (data) return res.status(200).json(data);
     } catch (error) {
-        console.log(error)
         return res.status(500).json({ error: "Internal Server Error !" })
     }
 }

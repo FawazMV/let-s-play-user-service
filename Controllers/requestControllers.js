@@ -7,6 +7,5 @@ export const getUsers = async (req, res) => {
 
 export const getUsersCount = async (req, res) => {
     const data = await usermodel.count().catch(err => res.status(500).json(err))
-    console.log(data)
     res.status(200).json(data)
 }
