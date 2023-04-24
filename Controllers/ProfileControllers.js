@@ -8,6 +8,7 @@ export const userDetails = async (req, res, next) => {
 export const updateProfile = async (req, res, next) => {
     try {
         const { username, email, mobile } = req.body
+        if(!username||!email||!mobile) return res.status(400).json({ message:"some fileds are missing"}) 
         const result = await usermodel.updateOne({ _id: req.user.id }, { $set: { username, email, mobile } }).catch(err => next(err))
         if (result) return res.status(200).json({ message: 'Profile updated successfully' })
     } catch (error) {
