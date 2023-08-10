@@ -12,7 +12,7 @@ import otherRoutes from './Routes/otherRoutes.js'
 
 dotenv.config()
 const app = express()
-app.use(express.json(),cors());
+app.use(express.json(), cors());
 
 app.use('/', authRoutes)
 
@@ -41,4 +41,4 @@ mongoose.connection.once("open", () => {
     app.listen(7777, () => {
         console.log(`Server running on port 7777 -user service`);
     });
-});
+}); 

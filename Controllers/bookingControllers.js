@@ -35,7 +35,7 @@ export const createPaymentIntent = async (req, res) => {
 export const bookingSuccess = async (req, res) => {
     try {
         const { email, username } = await usermodel.findOne({ _id: req.user.id }, { email: 1, username: 1 })
-        const { data } = await axios.patch('/booking-success', { id: req.body.id, email, username })
+        const { data } = await axios.put('/booking-success', { id: req.body.id, email, username })
         if (data) return res.status(200).json(data);
     } catch (error) {
         return res.status(500).json({ error: "Internal Server Error !" })
@@ -44,7 +44,7 @@ export const bookingSuccess = async (req, res) => {
 
 export const bookingFailed = async (req, res) => {
     try {
-        const { data } = await axios.patch('/booking-failed', { id: req.body.id })
+        const { data } = await axios.put('/booking-failed', { id: req.body.id })
         if (data) return res.status(200).json(data);
     } catch (error) {
         return res.status(500).json({ error: "Internal Server Error !" })

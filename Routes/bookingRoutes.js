@@ -11,8 +11,8 @@ router.get('/details', authVeify, userBookings)
 
 router.get('/payment', authVeify, createPaymentIntent)
 
-router.patch('/booking-success', authVeify, bookingSuccess)
+router.put('/booking-success', authVeify, bookingSuccess)
 
-router.patch('/booking-failed', bookingFailed)
+router.put('/booking-failed', bookingFailed)
 
 export default router     
