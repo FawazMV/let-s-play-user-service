@@ -25,7 +25,7 @@ export const userBookings = async (req, res) => {
 export const createPaymentIntent = async (req, res) => {
     try {
         const { email } = await usermodel.findOne({ _id: req.user.id }, { email: 1 })
-        const { data } = await axios.get('/payment', { params: { book_id: req.query.book_id, email } })
+        const { data } = await axios.get('/payment', { params: { book_id: req.query.book_id, email, intent: req.query?.intent } })
         if (data) return res.status(200).json(data);
     } catch (error) {
         return res.status(500).json({ error: "Internal Server Error !" })
